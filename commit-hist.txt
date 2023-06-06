@@ -1,3 +1,10 @@
+commit 1e1dc37cf4dfd377174a5489db3938d3edf03be6
+Author: Arfaz Hossain <arfazhussain@uvic.ca>
+Date:   Tue Jun 6 15:19:44 2023 -0700
+
+    GLFW Mac Builds
+    Commit by @arfazhxss on Tue 06 Jun 2023
+
 commit 6ac0e9b846f754631d595fa95f3f43261ae7771d
 Author: Arfaz Hossain <arfazhussain@uvic.ca>
 Date:   Tue Jun 6 15:19:09 2023 -0700
