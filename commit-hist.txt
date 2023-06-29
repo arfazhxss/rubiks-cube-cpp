@@ -1,3 +1,16 @@
+commit a9857d77b96855e962d3ae0d63f8f5d6283bff7b
+Author: Arfaz <arfazhussain@outlook.com>
+Date:   Thu Jun 29 15:16:28 2023 -0400
+
+    Routine Commit
+    by @arfazhxss on Thu 29 Jun 2023
+
+commit d39774cd8b27f5d885cd6b85ffed34007b9fd193
+Author: Arfaz Hussain <arfazhussain@uvic.ca>
+Date:   Thu Jun 29 15:15:29 2023 -0400
+
+    Update README.md
+
 commit 0b221eaafef6c5a13f631b9aaff105d890088bfa
 Author: Arfaz <arfazhussain@outlook.com>
 Date:   Thu Jun 29 15:14:36 2023 -0400
