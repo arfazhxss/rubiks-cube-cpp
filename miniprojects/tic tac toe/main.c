@@ -1,4 +1,5 @@
-#include <windows.h>
+#include <GL/gl.h>
+#include <GL/glu.h>
 #include <GL/glut.h> // glut (gl utility toolkit) basic windows functions, keyboard, mouse.
 #include <stdio.h>   // standard (I/O library)
 #include <stdlib.h>  // standard library (set of standard C functions
@@ -53,7 +54,7 @@ void init_game(void)
 int check_move(void)
 {
     int i, t = 0;
-    //Check for three in a row
+    // Check for three in a row
     for (i = 0; i < 8; i++)
     {
         t = box_map[box[i][0]] + box_map[box[i][1]] + box_map[box[i][2]];
@@ -169,7 +170,7 @@ void Sprint(int x, int y, char *st)
 {
     int l, i;
     l = strlen(st);         // see how many characters are in text string.
-    glRasterPos2i( x, y); // location to start printing text
+    glRasterPos2i(x, y);    // location to start printing text
     for (i = 0; i < l; i++) // loop until i is greater then l
     {
 
@@ -180,7 +181,7 @@ void SPrint(int x, int y, char *st)
 {
     int l, i;
     l = strlen(st);         // see how many characters are in text string.
-    glRasterPos2i( x, y); // location to start printing text
+    glRasterPos2i(x, y);    // location to start printing text
     for (i = 0; i < l; i++) // loop until i is greater then l
     {
 
@@ -207,9 +208,14 @@ void init(void)
     glLightfv(GL_LIGHT1, GL_DIFFUSE, LightDiffuse);
     glLightfv(GL_LIGHT1, GL_SPECULAR, LightSpecular);
     glLightfv(GL_LIGHT1, GL_POSITION, LightPosition);
+    GLfloat mat_specular[] = {1.0f, 1.0f, 1.0f, 1.0f};
+    GLfloat mat_ambient[] = {0.8f, 0.8f, 0.8f, 1.0f};
+    GLfloat mat_diffuse[] = {0.8f, 0.8f, 0.8f, 1.0f};
+
     glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
     glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
     glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
+
     glMaterialf(GL_FRONT, GL_SHININESS, mat_shininess);
     glShadeModel(GL_SMOOTH);
     glEnable(GL_NORMALIZE);
@@ -257,7 +263,7 @@ void display(void)
 {
     if (abc == 3)
     {
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //Clear the screen
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear the screen
         glColor3f(0.0, 0.0, 0.0);
         glMatrixMode(GL_PROJECTION);              // Tell opengl that we are doing project matrix work
         glLoadIdentity();                         // Clear the matrix
@@ -274,7 +280,7 @@ void display(void)
         Sprint(-7, 2, "Overview");
         glColor3f(0.1, 0.2, 0.3);
         SPrint(-7, 1, "Tic Tac Toe is a two-player game where the first player to");
-        SPrint(-7, 0,  "connect a line of pieces from one side or corner of the board to the other wins.");
+        SPrint(-7, 0, "connect a line of pieces from one side or corner of the board to the other wins.");
         glColor3f(0.9, 0.8, 0.7);
         Sprint(-7, -2, "Rules");
         glColor3f(0.1, 0.2, 0.3);
@@ -288,7 +294,7 @@ void display(void)
     }
     else if (abc == 0)
     {
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //Clear the screen
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear the screen
         glMatrixMode(GL_PROJECTION);                        // Tell opengl that we are doing project matrix work
         glLoadIdentity();                                   // Clear the matrix
         glOrtho(-9.0, 9.0, -9.0, 9.0, 0.0, 30.0);           // Setup an Ortho view
@@ -306,11 +312,11 @@ void display(void)
     }
     else
     {
-        //char txt[30];
+        // char txt[30];
         int ix, iy;
         int i;
         int j;
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //Clear the screen
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear the screen
         glMatrixMode(GL_PROJECTION);                        // Tell opengl that we are doing project matrix work
         glLoadIdentity();                                   // Clear the matrix
         glOrtho(-9.0, 9.0, -9.0, 9.0, 0.0, 30.0);           // Setup an Ortho view
@@ -332,8 +338,6 @@ void display(void)
         gluPerspective(60, 1, 1, 30);
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
-
-
 
         glEnable(GL_LIGHTING);
 
@@ -493,7 +497,7 @@ int main(int argc, char **argv)
     glutDisplayFunc(display);
     glutReshapeFunc(reshape);
     glutKeyboardFunc(keyboard);
-    //glutMouseFunc(mouse);
+    // glutMouseFunc(mouse);
     glutTimerFunc(50, TimeEvent, 1);
     glutMainLoop();
     return 0;
