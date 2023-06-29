@@ -3,8 +3,6 @@ Rubik Cube in C++ with OpenGL/glut
 
 ## Documentation
 
-This project was done for a Computer Graphics course in my last graduation period at Universidade Federal de Uberlândia along with 3 mates.
-
 Everything is in one file just because.
 
 **Compile with:** *make*
