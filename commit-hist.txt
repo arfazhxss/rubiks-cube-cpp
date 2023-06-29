@@ -1,3 +1,17 @@
+commit 89968230268ce4a05e1b27f7559bb8b555a42ce4
+Author: arfazhxss <arfazhussain@uvic.ca>
+Date:   Thu Jun 29 05:57:43 2023 -0700
+
+    MacOS check
+    Commit by @arfazhxss on Thu 29 Jun 2023
+
+commit a85c7081f2c4b58b491d56091f5897e096a90fe0
+Author: Arfaz <arfazhussain@outlook.com>
+Date:   Thu Jun 29 08:42:56 2023 -0400
+
+    Fedora Package Fixes
+    Commit by @arfazhxss on Thu 29 Jun 2023
+
 commit 078beab0328b9db2720cb297e421c265e9ae0a8f
 Author: arfazhxss <arfazhussain@uvic.ca>
 Date:   Tue Jun 27 23:47:10 2023 -0700
