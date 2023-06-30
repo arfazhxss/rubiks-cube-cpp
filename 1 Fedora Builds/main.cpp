@@ -77,9 +77,9 @@ int main()
         // Get + Handle user input events
         glfwPollEvents();
 
-        // Clear window
-        glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
+        // Clear window // RGB Values not between 0-256 but 0-1
+        glClearColor(1.0f, 0.0f, 0.0f, 0.5f); // RED, GREEN, BLUE, ALPHA -->> (HOW TRANSPARENT IT IS)
+        glClear(GL_COLOR_BUFFER_BIT); // 
 
         glfwSwapBuffers(mainWindow);
     }
