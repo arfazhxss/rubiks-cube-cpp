@@ -69,6 +69,8 @@ int main()
     // Size of the part, we are making this out entire view .. or smth????
     glViewport(0, 0, bufferWidth, bufferHeight);
 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////// Part 7 //
     // Loop until window closed
     while (!glfwWindowShouldClose(mainWindow))
     {
