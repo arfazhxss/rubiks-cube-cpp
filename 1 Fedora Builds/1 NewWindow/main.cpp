@@ -75,13 +75,13 @@ int main()
     while (!glfwWindowShouldClose(mainWindow))
     {
         // Get + Handle user input events
-        glfwPollEvents();
+        glfwPollEvents(); // Check if any events have happened, resize click etc etc .. .. 
 
         // Clear window // RGB Values not between 0-256 but 0-1
         glClearColor(1.0f, 0.0f, 0.0f, 0.5f); // RED, GREEN, BLUE, ALPHA -->> (HOW TRANSPARENT IT IS)
-        glClear(GL_COLOR_BUFFER_BIT); // 
+        glClear(GL_COLOR_BUFFER_BIT); // lots of things going, each pixel has color and depth data etc... we are clearing specific things
 
-        glfwSwapBuffers(mainWindow);
+        glfwSwapBuffers(mainWindow); // two windows, one being drawn and one we are seeing. this is the one we cant see and we are closing it
     }
 
     return 0;
