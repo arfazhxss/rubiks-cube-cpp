@@ -52,6 +52,9 @@ int main()
     // Allow modern extension features
     glewExperimental = GL_TRUE;
 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////// Part 5 //
+    // Initialize GLEW
     if (glewInit() != GLEW_OK)
     {
         printf("GLEW initialisation failed!");
@@ -60,7 +63,10 @@ int main()
         return 1;
     }
 
-    // Setup Viewport size
+    ///////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////// Part 6 //
+    // Setup Viewport size // x and y (top left and right), bufferWidth and bufferHeight (section in the middle).
+    // Size of the part, we are making this out entire view .. or smth????
     glViewport(0, 0, bufferWidth, bufferHeight);
 
     // Loop until window closed
