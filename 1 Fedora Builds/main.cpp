@@ -18,8 +18,8 @@ int main()
 
     // Setup GLFW window properties
     // OpenGL version
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3); // Setting some property for OpenGL Property
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3); // modern version is 3.2>> // and here it's saying 3.3
     // Core Profile = No Backwards Compatibility
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     // Allow Forward Compatbility
