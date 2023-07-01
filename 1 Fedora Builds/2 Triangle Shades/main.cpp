@@ -28,7 +28,7 @@ out vec4 colour;                                                              \n
                                                                               \n\
 void main()                                                                   \n\
 {                                                                             \n\
-    colour = vec4(1.0, 0.0, 0.0, 1.0);                                        \n\
+    colour = vec4(0.5, 0.5, 0.0, 0.5);                                        \n\
 }";
 
 void CreateTriangle()
@@ -36,13 +36,13 @@ void CreateTriangle()
 	GLfloat vertices[] = {
 		-1.0f, -1.0f, 0.0f,
 		1.0f, -1.0f, 0.0f,
-		0.0f, 1.0f, 0.0f};
+		0.0f, 1.0f, 0.0f}; // TRIANGLE VECTOR center BEING IN THE MIDDLE OF THE WINDOW
 
-	glGenVertexArrays(1, &VAO);
+	glGenVertexArrays(1, &VAO); // VAO -> 
 	glBindVertexArray(VAO);
 		glGenBuffers(1, &VBO);
 		glBindBuffer(GL_ARRAY_BUFFER, VBO);
-			glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);\
+			glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 			glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
 			glEnableVertexAttribArray(0);
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
