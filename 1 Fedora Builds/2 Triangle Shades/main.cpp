@@ -10,7 +10,7 @@ const GLint WIDTH = 800, HEIGHT = 600;
 GLuint VBO, VAO, shader;
 
 // Vertex Shader code
-static const char* vShader = "                                                \n\
+static const char *vShader = "                                                \n\
 #version 330                                                                  \n\
                                                                               \n\
 layout (location = 0) in vec3 pos;											  \n\
@@ -21,7 +21,7 @@ void main()                                                                   \n
 }";
 
 // Fragment Shader
-static const char* fShader = "                                                \n\
+static const char *fShader = "                                                \n\
 #version 330                                                                  \n\
                                                                               \n\
 out vec4 colour;                                                               \n\
@@ -36,8 +36,7 @@ void CreateTriangle()
 	GLfloat vertices[] = {
 		-1.0f, -1.0f, 0.0f,
 		1.0f, -1.0f, 0.0f,
-		0.0f, 1.0f, 0.0f
-	};
+		0.0f, 1.0f, 0.0f};
 
 	glGenVertexArrays(1, &VAO);
 	glBindVertexArray(VAO);
@@ -54,11 +53,11 @@ void CreateTriangle()
 	glBindVertexArray(0);
 }
 
-void AddShader(GLuint theProgram, const char* shaderCode, GLenum shaderType)
+void AddShader(GLuint theProgram, const char *shaderCode, GLenum shaderType)
 {
 	GLuint theShader = glCreateShader(shaderType);
 
-	const GLchar* theCode[1];
+	const GLchar *theCode[1];
 	theCode[0] = shaderCode;
 
 	GLint codeLength[1];
@@ -68,10 +67,10 @@ void AddShader(GLuint theProgram, const char* shaderCode, GLenum shaderType)
 	glCompileShader(theShader);
 
 	GLint result = 0;
-	GLchar eLog[1024] = { 0 };
+	GLchar eLog[1024] = {0};
 
 	glGetShaderiv(theShader, GL_COMPILE_STATUS, &result);
-	if (!result) 
+	if (!result)
 	{
 		glGetShaderInfoLog(theShader, 1024, NULL, eLog);
 		fprintf(stderr, "Error compiling the %d shader: '%s'\n", shaderType, eLog);
@@ -85,7 +84,7 @@ void CompileShaders()
 {
 	shader = glCreateProgram();
 
-	if (!shader) 
+	if (!shader)
 	{
 		printf("Failed to create shader\n");
 		return;
@@ -95,11 +94,11 @@ void CompileShaders()
 	AddShader(shader, fShader, GL_FRAGMENT_SHADER);
 
 	GLint result = 0;
-	GLchar eLog[1024] = { 0 };
+	GLchar eLog[1024] = {0};
 
 	glLinkProgram(shader);
 	glGetProgramiv(shader, GL_LINK_STATUS, &result);
-	if (!result) 
+	if (!result)
 	{
 		glGetProgramInfoLog(shader, sizeof(eLog), NULL, eLog);
 		printf("Error linking program: '%s'\n", eLog);
@@ -108,13 +107,12 @@ void CompileShaders()
 
 	glValidateProgram(shader);
 	glGetProgramiv(shader, GL_VALIDATE_STATUS, &result);
-	if (!result) 
+	if (!result)
 	{
 		glGetProgramInfoLog(shader, sizeof(eLog), NULL, eLog);
 		printf("Error validating program: '%s'\n", eLog);
 		return;
 	}
-
 }
 
 int main()
