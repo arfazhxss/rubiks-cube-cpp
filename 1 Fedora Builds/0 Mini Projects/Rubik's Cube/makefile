@@ -7,7 +7,7 @@ LDFLAGS = -lGL -lGLU -lglut
 
 SOURCES = main.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
-EXECUTABLE = rubik_cube
+EXECUTABLE = OpenGL
 
 .PHONY: all clean
 
