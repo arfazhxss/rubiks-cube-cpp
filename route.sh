@@ -32,6 +32,6 @@ else
     git push origin HEAD
     git log > commit-hist.txt
     rm -rf .DS_Store/
-    echo -e "\n\t\tYour changes has been pushed\n\t\t:)\n"
+    echo -e "\n\t\tYour changes has been pushed\n\t\tto the repository :)\n"
   fi
 fi
