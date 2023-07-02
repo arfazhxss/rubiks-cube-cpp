@@ -1,3 +1,10 @@
+commit cb014680a163bea02207b67242767b5d0cc3885b
+Author: Arfaz <arfazhussain@outlook.com>
+Date:   Sat Jul 1 23:57:02 2023 -0700
+
+    GLSL Language Documentation
+    Commit by @arfazhxss on Sat 01 Jul 2023
+
 commit 42c04c3b098dbbdfb72cd58f05e5a5bd7d8ec57b
 Author: Arfaz <arfazhussain@outlook.com>
 Date:   Sat Jul 1 23:38:15 2023 -0700

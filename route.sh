@@ -1,28 +1,32 @@
 #!/bin/bash
 #auto-git v5.0
 
-read -p "Do you want to fast forward and delete changes made after the last commit? (y/n): " answer
+# read -p "DELETE ANY CHANGES before the last commit? (y/n): " answer
+
+echo -e "\n\t\tDELETE LOCAL CHANGES? (YES) \n\t\t\tOR\n\t\tPUSH LOCAL CHANGES (ENTER)\n"
+read -n 1 -p "(yes/ENTER): " answer
 
 if [[ $answer == "y" || $answer == "Y" ]]; then
   git stash
   git stash clear
   git pull
+  echo " Your Repository is updated to the latest commit\n"
 else
-  echo "Commit Message:"
-  read commit_message
+  echo -e "ENTERED\n"
+  read -p "Your Commit Message: " commt
 
-  if [[ -z "$commit_message" || ${#commit_message} -lt 3 ]]; then
-    commit_message="Routine Commit"
+  if [[ -z "$commt" || ${#commt} -lt 3 ]]; then
+    commt="Routine Commit"
     git add . && \
     git add -u && \
-    git commit -m $"$commit_message"$'\nby @arfazhxss on '"$(date +'%a %d %b %Y')" && \
+    git commit -m $"$commt"$'\nby @arfazhxss on '"$(date +'%a %d %b %Y')" && \
     git push origin HEAD
     git log > commit-hist.txt
     rm -rf .DS_Store/
   else
     git add . && \
     git add -u && \
-    git commit -m $"$commit_message"$'\nCommit by @arfazhxss on '"$(date +'%a %d %b %Y')" && \
+    git commit -m $"$commt"$'\nCommit by @arfazhxss on '"$(date +'%a %d %b %Y')" && \
     git push origin HEAD
     git log > commit-hist.txt
     rm -rf .DS_Store/
