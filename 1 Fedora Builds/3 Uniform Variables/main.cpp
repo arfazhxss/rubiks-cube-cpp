@@ -2,8 +2,8 @@
 #include <string.h>
 #include <cmath>
 
-#include <GL\glew.h>
-#include <GLFW\glfw3.h>
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
 
 // Window dimensions
 const GLint WIDTH = 800, HEIGHT = 600;
@@ -12,8 +12,8 @@ GLuint VBO, VAO, shader, uniformXMove;
 
 bool direction = true;
 float triOffset = 0.0f;
-float triMaxOffset = 0.7f;
-float triIncrement = 0.0005f;
+float triMaxOffset = 0.0000000001f;
+float triIncrement = 0.005f;
 
 // Vertex Shader code
 static const char* vShader = "                                                \n\
@@ -49,16 +49,12 @@ void CreateTriangle()
 
 	glGenVertexArrays(1, &VAO);
 	glBindVertexArray(VAO);
-
-	glGenBuffers(1, &VBO);
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
-	glEnableVertexAttribArray(0);
-
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-
+		glGenBuffers(1, &VBO);
+		glBindBuffer(GL_ARRAY_BUFFER, VBO);
+			glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+			glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+			glEnableVertexAttribArray(0);
+		glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
 }
 
@@ -183,32 +179,19 @@ int main()
 	{
 		// Get + Handle user input events
 		glfwPollEvents();
-
-		if (direction)
-		{
-			triOffset += triIncrement;
-		}
-		else {
-			triOffset -= triIncrement;
-		}
-
-		if (abs(triOffset) >= triMaxOffset)
-		{
-			direction = !direction;
-		}
+		if (direction) { triOffset += triIncrement; }
+		else { triOffset -= triIncrement; }
+		if (abs(triOffset) >= triMaxOffset) { direction = !direction; }
 
 		// Clear window
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		glUseProgram(shader);
-
-		glUniform1f(uniformXMove, triOffset);
-
-		glBindVertexArray(VAO);
-		glDrawArrays(GL_TRIANGLES, 0, 3);
-		glBindVertexArray(0);
-
+			glUniform1f(uniformXMove, triOffset); // NEW 
+			glBindVertexArray(VAO);
+				glDrawArrays(GL_TRIANGLES, 0, 3);
+			glBindVertexArray(0);
 		glUseProgram(0);
 
 		glfwSwapBuffers(mainWindow);
