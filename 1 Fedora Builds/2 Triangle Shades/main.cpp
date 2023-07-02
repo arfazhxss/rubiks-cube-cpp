@@ -4,36 +4,6 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
-// // Window dimensions
-// const GLint WIDTH = 800;
-// const GLint HEIGHT = 600;
-
-// GLuint VBO, VAO, shader;
-
-// // Vertex Shader code
-// static const char *vShader = R"(
-// #version 330
-
-// layout (location = 0) in vec3 pos;
-
-// void main()
-// {
-//     gl_Position = vec4(0.4 * pos.x, 0.4 * pos.y, pos.z, 1.0);
-// }
-// )";
-
-// // Fragment Shader
-// static const char *fShader = R"(
-// #version 330
-
-// out vec4 colour;
-
-// void main()
-// {
-//     colour = vec4(0.5, 0.5, 0.0, 0.5);
-// }
-// )";
-
 // Window dimensions
 const GLint WIDTH = 800;  // The width of the window in pixels.
 const GLint HEIGHT = 600; // The height of the window in pixels.

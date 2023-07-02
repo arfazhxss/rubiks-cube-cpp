@@ -1,3 +1,73 @@
+commit a54c35906c4d2075405b0826853ae13abde7261e
+Author: Arfaz <arfazhussain@outlook.com>
+Date:   Sat Jul 1 23:34:50 2023 -0700
+
+    Documentation Of Triangle Shader
+    Commit by @arfazhxss on Sat 01 Jul 2023
+
+commit 5719052ece4020c89c4952a83cc801c7683cbfac
+Author: Arfaz Hussain <arfazhussain@uvic.ca>
+Date:   Sat Jul 1 22:08:43 2023 -0700
+
+    link update
+
+commit 85006fcf9e4166ae65048c7b181693ff54344e5b
+Author: Arfaz Hussain <arfazhussain@uvic.ca>
+Date:   Sat Jul 1 22:07:44 2023 -0700
+
+    Update README.md
+
+commit eab66d09fb36bd4e25a5513085b66a2f0db63901
+Author: Arfaz Hussain <arfazhussain@uvic.ca>
+Date:   Sat Jul 1 22:07:33 2023 -0700
+
+    Update README.md
+
+commit 1493e9c40e0069a7e17c6260111635ba63720e06
+Author: Arfaz Hussain <arfazhussain@uvic.ca>
+Date:   Sat Jul 1 22:07:21 2023 -0700
+
+    Update README.md
+
+commit f7717e22ebd44fc0d282de2426eb0a70bbce4189
+Author: arfazhxss <arfazhussain@uvic.ca>
+Date:   Sat Jul 1 20:24:23 2023 -0700
+
+    Bash Script Update
+    Commit by @arfazhxss on Sat 01 Jul 2023
+
+commit 183763d6fba1f1bbcac7324aad7e6d3409652e65
+Author: Arfaz Hussain <arfazhussain@uvic.ca>
+Date:   Sat Jul 1 20:19:30 2023 -0700
+
+    Update README.md
+
+commit f9eff8a86aafdc8dfbcbfd3135d26e284275ec3d
+Author: Arfaz Hussain <arfazhussain@uvic.ca>
+Date:   Sat Jul 1 20:18:59 2023 -0700
+
+    Create README.md
+
+commit a51c25ea7e3b04262806c9facb989583e75be6cf
+Author: arfazhxss <arfazhussain@uvic.ca>
+Date:   Sat Jul 1 20:16:42 2023 -0700
+
+    Routine Commit
+    by @arfazhxss on Sat 01 Jul 2023
+
+commit b629bafd2606f7cb8dc4af378251b424c4da7f51
+Author: Arfaz Hussain <arfazhussain@uvic.ca>
+Date:   Sat Jul 1 20:08:59 2023 -0700
+
+    README Update
+
+commit 792111d5048c6d4fb056472636437ac0313b1f42
+Author: Arfaz <arfazhussain@outlook.com>
+Date:   Sat Jul 1 20:05:15 2023 -0700
+
+    Routine Commit
+    by @arfazhxss on Sat 01 Jul 2023
+
 commit 8fc1cef4a433c721078272ad77e9791cecfbb57a
 Author: arfazhxss <arfazhussain@uvic.ca>
 Date:   Sat Jul 1 20:04:14 2023 -0700
