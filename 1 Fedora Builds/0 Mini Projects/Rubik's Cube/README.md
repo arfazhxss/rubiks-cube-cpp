@@ -3,11 +3,13 @@ Rubik Cube in C++ with OpenGL/glut
 
 ## Documentation
 
-Everything is in one file just because.
+Everything is in one file just because you can compile and run them with just one command.
 
 **Compile with:** `make`
 
 **Run with:** `./OpenGL`
+
+**Clean:** `make clean`
 
 ### Commands
 
