@@ -7,6 +7,7 @@ echo -e "\n\t\tDELETE LOCAL CHANGES? (YES) \n\t\t\tOR\n\t\tPUSH LOCAL CHANGES (E
 read -s -n 3 -p "(yes/ENTER): " answer
 
 if [[ $answer == "yes" || $answer == "Yes" || $answer == "YES" ]]; then
+  echo -e "YES'ED\n"
   git stash
   git stash clear
   git pull
