@@ -1,7 +1,7 @@
-# OpenGL/glut Rubik Cube
-Rubik's Cube in C++ with OpenGL/glut
+# OpenGL Rubik Cube 
+Implementation of a 3D Rubik's Cube in C++ using C Libraries: GLUT, GLFW and GLM
 
-<img src="./Rubiks%20Cube.gif" alt="Rubik's Cube" width="400" height="400">
+<img src="./Rubiks%20Cube.gif" alt="Rubik's Cube" width="500" height="500">
 
 
 ## Documentation
