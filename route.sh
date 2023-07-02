@@ -24,7 +24,7 @@ else
     git push origin HEAD
     git log > commit-hist.txt
     rm -rf .DS_Store/
-    echo -e "\nYour changes has been pushed :)\n"
+    echo -e "\n\t\tYour changes has been pushed\n\t\t:)\n"
   else
     git add . && \
     git add -u && \
