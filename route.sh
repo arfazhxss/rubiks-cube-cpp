@@ -1,8 +1,6 @@
 #!/bin/bash
 #auto-git v5.0
 
-# read -p "DELETE ANY CHANGES before the last commit? (y/n): " answer
-
 echo -e "\n\t\tDELETE LOCAL CHANGES? (YES) \n\t\t\tOR\n\t\tPUSH LOCAL CHANGES (ENTER)\n"
 read -s -n 3 -p "(yes/ENTER): " answer
 
@@ -24,7 +22,7 @@ else
     git push origin HEAD
     git log > commit-hist.txt
     rm -rf .DS_Store/
-    echo -e "\n\t\tYour changes has been pushed\n\t\t:)\n"
+    echo -e "\n\t\tYour changes has been pushed\n\t\tto the repository :)\n"
   else
     git add . && \
     git add -u && \
