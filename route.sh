@@ -1,7 +1,14 @@
 #!/bin/bash
-#auto-git v4.6
+#auto-git v4.8
 
-git pull
+read -p "Do you want to fast forward and delete changes made after the last commit? (y/n): " answer
+
+if [[ $answer == "y" || $answer == "Y" ]]; then
+    git stash
+    git stash clear
+    git pull
+fi
+
 echo "Commit Message:"
 read commit_message
 
