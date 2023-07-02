@@ -11,7 +11,7 @@ if [[ $answer == "yes" || $answer == "Yes" || $answer == "YES" ]]; then
   git stash
   git stash clear
   git pull
-  echo -e "\nYour Repository is updated to the latest commit!\n"
+  echo -e "\n\t\tYour Repository is updated\n\t\tto the latest commit!\n"
 else
   echo -e "ENTERED\n"
   read -p "Your Commit Message: " commt
