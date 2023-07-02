@@ -1,7 +1,7 @@
 #!/bin/bash
 #auto-git v5.0
 
-echo -e "\n\t\tDELETE LOCAL CHANGES? (YES) \n\t\t\tOR\n\t\tPUSH LOCAL CHANGES (ENTER)\n"
+echo -e "_____________________________________________________\n\t\tDELETE LOCAL CHANGES? (YES) \n\t\t\tOR\n\t\tPUSH LOCAL CHANGES (ENTER)\n"
 read -s -n 3 -p "(yes/ENTER): " answer
 
 if [[ $answer == "yes" || $answer == "Yes" || $answer == "YES" ]]; then
@@ -9,7 +9,7 @@ if [[ $answer == "yes" || $answer == "Yes" || $answer == "YES" ]]; then
   git stash
   git stash clear
   git pull
-  echo -e "-------------------------------------------------------\n\t\tYour Repository is updated\n\t\tto the latest commit!\n_____________________________________________"
+  echo -e "-------------------------------------------------------\n\t\tYour Repository is updated\n\t\tto the latest commit!\n_____________________________________________________"
 else
   echo -e "ENTER'ED\n-------------------------------------------------------"
   read -p "Your Commit Message: " commt
@@ -22,7 +22,7 @@ else
     git push origin HEAD
     git log > commit-hist.txt
     rm -rf .DS_Store/
-    echo -e "-------------------------------------------------------\n\t\tYour changes has been pushed\n\t\tto the repository :)\n_____________________________________________"
+    echo -e "-------------------------------------------------------\n\t\tYour changes has been pushed\n\t\tto the repository :)\n_____________________________________________________"
   else
     git add . && \
     git add -u && \
@@ -30,6 +30,6 @@ else
     git push origin HEAD
     git log > commit-hist.txt
     rm -rf .DS_Store/
-    echo -e "-------------------------------------------------------\n\t\tYour changes has been pushed\n\t\tto the repository :)\n_____________________________________________"
+    echo -e "-------------------------------------------------------\n\t\tYour changes has been pushed\n\t\tto the repository :)\n_____________________________________________________"
   fi
 fi
