@@ -1,7 +1,7 @@
 # OpenGL/glut Rubik Cube
-Rubik Cube in C++ with OpenGL/glut
+Rubik's Cube in C++ with OpenGL/glut
 
-
+![Rubik's Cube](./Rubiks%20Cube.gif)
 
 ## Documentation
 
