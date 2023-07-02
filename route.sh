@@ -1,6 +1,7 @@
 #!/bin/bash
-#auto-git v4.5
+#auto-git v4.6
 
+git pull
 echo "Commit Message:"
 read commit_message
 
