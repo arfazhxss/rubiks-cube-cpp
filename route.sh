@@ -11,7 +11,7 @@ if [[ $answer == "yes" || $answer == "Yes" || $answer == "YES" ]]; then
   git pull
   echo -e "---------------------------------\n\t\tYour Repository is updated\n\t\tto the latest commit!\n"
 else
-  echo -e "ENTER'ED\n-----------"
+  echo -e "ENTER'ED\n---------------------------------"
   read -p "Your Commit Message: " commt
 
   if [[ -z "$commt" || ${#commt} -lt 3 ]]; then
