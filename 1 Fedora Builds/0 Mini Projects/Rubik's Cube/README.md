@@ -1,7 +1,7 @@
 # OpenGL/glut Rubik Cube
 Rubik Cube in C++ with OpenGL/glut
 
-![Rubik's Cube](1%20Fedora%20Builds/0%20Mini%20Projects/Rubik's%20Cube/Rubiks%20Cube.gif)
+
 
 ## Documentation
 
