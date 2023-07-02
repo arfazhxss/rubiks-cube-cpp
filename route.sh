@@ -1,7 +1,7 @@
 #!/bin/bash
 #auto-git v5.0
 
-echo -e "\n_______________________________________________________\n\t\tDELETE LOCAL CHANGES? (YES) \n\t\t\tOR\n\t\tPUSH LOCAL CHANGES (ENTER)\n"
+echo -e "\n_______________________________________________________\n\n\t\tDELETE LOCAL CHANGES? (YES) \n\t\t\tOR\n\t\tPUSH LOCAL CHANGES (ENTER)\n"
 read -s -n 3 -p "(yes/ENTER): " answer
 
 if [[ $answer == "yes" || $answer == "Yes" || $answer == "YES" ]]; then
