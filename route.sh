@@ -4,13 +4,13 @@
 # read -p "DELETE ANY CHANGES before the last commit? (y/n): " answer
 
 echo -e "\n\t\tDELETE LOCAL CHANGES? (YES) \n\t\t\tOR\n\t\tPUSH LOCAL CHANGES (ENTER)\n"
-read -n 1 -p "(yes/ENTER): " answer
+read -p "(yes/ENTER): " answer
 
 if [[ $answer == "y" || $answer == "Y" ]]; then
   git stash
   git stash clear
   git pull
-  echo " Your Repository is updated to the latest commit\n"
+  echo -e "\nYour Repository is updated to the latest commit!\n"
 else
   echo -e "ENTERED\n"
   read -p "Your Commit Message: " commt
