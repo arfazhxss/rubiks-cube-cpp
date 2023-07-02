@@ -4,7 +4,7 @@
 # read -p "DELETE ANY CHANGES before the last commit? (y/n): " answer
 
 echo -e "\n\t\tDELETE LOCAL CHANGES? (YES) \n\t\t\tOR\n\t\tPUSH LOCAL CHANGES (ENTER)\n"
-read -n 3 -p "(yes/ENTER): " answer
+read -s -n 3 -p "(yes/ENTER): " answer
 
 if [[ $answer == "yes" || $answer == "Yes" || $answer == "YES" ]]; then
   git stash
