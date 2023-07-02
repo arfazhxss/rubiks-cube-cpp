@@ -12,43 +12,48 @@ GLuint VBO, VAO, shader; // Variables used for OpenGL object handling.
 
 /*
  * VERTEX SHADER CODE
- *		-	The vertex shader code written in GLSL (OpenGL Shading Language).
- *		-	It takes the position of the vertex as input and transforms it by applying a scaling factor.
- *		- 	The transformed vertex position is then assigned to the built-in variable gl_Position.
+ *			-	The vertex shader code written in GLSL (OpenGL Shading Language).
+ *			-	It takes the position of the vertex as input and transforms it by applying a scaling factor.
+ *			- 	The transformed vertex position is then assigned to the built-in variable gl_Position.
+ *		(Summary of what's already written)
  *
- * In the given vertex shader code, let's break down the relevant parts:
+ * 		In the given vertex shader code, let's break down the relevant parts:
  *
- * 	1. `layout (location = 0) in vec3 pos;`
- * 		- 	`layout` is a keyword in GLSL used to specify the layout or organization of shader variables.
- * 		- 	`location = 0` is a layout qualifier that assigns a specific location to the input variable `pos`.
- * 			In this case, `pos` will receive data from attribute location 0.
- * 		- 	`in` indicates that `pos` is an input variable, which means it will receive values from the vertex attributes of the input vertices.
+ * 		1 [ layout (location = 0) in vec3 pos; ]
+ * 			- 	`layout` is a keyword in GLSL used to specify the layout or organization of shader variables.
+ * 			- 	`location = 0` is a layout qualifier that assigns a specific location to the input variable `pos`.
+ * 				In this case, `pos` will receive data from attribute location 0.
+ * 			- 	`in` indicates that `pos` is an input variable, which means it will receive values from the vertex 
+ * 				attributes of the input vertices.
  *
- * 	So, `layout (location = 0) in vec3 pos;`
- * 	declares an input variable `pos` of type `vec3` (a 3-component vector)
- * 	and assigns it to attribute location 0.
+ * 		So, [ layout (location = 0) in vec3 pos; ]
+ * 		declares an input variable `pos` of type `vec3` (a 3-component vector)
+ * 		and assigns it to attribute location 0.
  *
- * 	2. `gl_Position = vec4(0.4 * pos.x, 0.4 * pos.y, pos.z, 1.0);`
+ * 		2 [ gl_Position = vec4(0.4 * pos.x, 0.4 * pos.y, pos.z, 1.0); ]
  *
- * 		- 	`gl_Position` is a built-in output variable in GLSL representing the transformed position of the vertex.
- * 		- 	`vec4` is a 4-component vector type in GLSL.
- * 		- 	`(0.4 * pos.x, 0.4 * pos.y, pos.z, 1.0)` is the value assigned to `gl_Position`.
- *	 	- 	`0.4 * pos.x` scales the x-coordinate of the input position by 0.4.
- *	 	- 	`0.4 * pos.y` scales the y-coordinate of the input position by 0.4.
- *	 	- 	`pos.z` keeps the z-coordinate unchanged.
- *	 	- 	`1.0` sets the w-coordinate (homogeneous coordinate) to 1.0.
+ * 			- 	`gl_Position` is a built-in output variable in GLSL representing the transformed position of the vertex.
+ * 			- 	`vec4` is a 4-component vector type in GLSL.
+ * 			- 	`(0.4 * pos.x, 0.4 * pos.y, pos.z, 1.0)` is the value assigned to `gl_Position`.
+ *	 		- 	`0.4 * pos.x` scales the x-coordinate of the input position by 0.4.
+ *	 		- 	`0.4 * pos.y` scales the y-coordinate of the input position by 0.4.
+ *	 		- 	`pos.z` keeps the z-coordinate unchanged.
+ *	 		- 	`1.0` sets the w-coordinate (homogeneous coordinate) to 1.0.
  *
- *	By assigning the transformed position to `gl_Position`,
- *	the vertex shader specifies the final position of the vertex
- * 	after applying the scaling transformation.
+ *		By assigning the transformed position to `gl_Position`,
+ *		the vertex shader specifies the final position of the vertex
+ * 		after applying the scaling transformation.
  *
- * 	Regarding the use of `vec3` for `pos` and `vec4` for `gl_Position`:
- * 		- 	`vec3` is used for `pos` because it represents the input position of the vertex in 3D space, consisting of x, y, and z coordinates.
- * 		- 	`vec4` is used for `gl_Position` because it represents the homogeneous position of the vertex in 4D space.
- * 		- 	The w-coordinate is necessary for perspective transformations and homogeneous clipping.
- * 		- 	In this case, it is set to 1.0, indicating that the vertex is not being projected onto a homogeneous space.
+ * 		3 Regarding the use of `vec3` for `pos` and `vec4` for `gl_Position`:
+ * 			- 	`vec3` is used for `pos` because it represents the input position of the vertex in 3D space, 
+ * 				consisting of x, y, and z coordinates.
+ * 			- 	`vec4` is used for `gl_Position` because it represents the homogeneous position of the 
+ * 				vertex in 4D space.
+ * 			- 	The w-coordinate is necessary for perspective transformations and homogeneous clipping.
+ * 			- 	In this case, it is set to 1.0, indicating that the vertex is not being projected onto 
+ * 				a homogeneous space.
  *
- * 	The transformation scales the x and y coordinates of the input position by 0.4, which effectively reduces the size of the rendered object.
+ * 		The transformation scales the x and y coordinates of the input position by 0.4, which effectively reduces the size of the rendered object.
  */
 static const char *vShader = R"(
 #version 330
@@ -156,8 +161,8 @@ void CompileShaders()
 	GLint result = 0;		 // Variable to store the result of shader program operations
 	GLchar eLog[1024] = {0}; // Array to store error log messages
 
-	glLinkProgram(shader);							 // Link the shader program
-	glGetProgramiv(shader, GL_LINK_STATUS, &result); // Check the linking status
+	glLinkProgram (shader);							 // Link the shader program
+	glGetProgramiv (shader, GL_LINK_STATUS, &result); // Check the linking status
 
 	if (!result) // Check if the linking was successful
 	{
@@ -229,7 +234,7 @@ int main()
 	CreateTriangle();
 	CompileShaders();
 
-	// Loop until window closed
+	// Loop until window closed; function -> closed? NO! closed? NO! closed? NO....
 	while (!glfwWindowShouldClose(mainWindow))
 	{
 		// Get + Handle user input events
@@ -240,11 +245,9 @@ int main()
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		glUseProgram(shader);
-
-		glBindVertexArray(VAO);
-		glDrawArrays(GL_TRIANGLES, 0, 3);
-		glBindVertexArray(0);
-
+			glBindVertexArray(VAO);
+				glDrawArrays(GL_TRIANGLES, 0, 3);
+			glBindVertexArray(0);
 		glUseProgram(0);
 
 		glfwSwapBuffers(mainWindow);
