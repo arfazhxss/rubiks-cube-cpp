@@ -1,7 +1,7 @@
 # OpenGL/glut Rubik Cube
 Rubik's Cube in C++ with OpenGL/glut
 
-![Rubik's Cube](./Rubiks%20Cube.gif)
+<img src="./Rubiks%20Cube.gif" alt="Rubik's Cube" width="200" height="200">
 
 ## Documentation
 
