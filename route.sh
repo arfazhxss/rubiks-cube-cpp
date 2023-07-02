@@ -1,5 +1,5 @@
 #!/bin/bash
-#auto-git v5.0
+#auto-git v6.0
 
 echo -e "\n_______________________________________________________\n\n\t\tDELETE LOCAL CHANGES? (YES) \n\t\t\tOR\n\t\tPUSH LOCAL CHANGES (ENTER)\n"
 read -s -n 3 -p "(yes/ENTER): " answer
