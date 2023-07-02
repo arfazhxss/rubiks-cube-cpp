@@ -5,13 +5,13 @@ echo -e "\n\t\tDELETE LOCAL CHANGES? (YES) \n\t\t\tOR\n\t\tPUSH LOCAL CHANGES (E
 read -s -n 3 -p "(yes/ENTER): " answer
 
 if [[ $answer == "yes" || $answer == "Yes" || $answer == "YES" ]]; then
-  echo -e "YES'ED\n---------------------------------"
+  echo -e "YES'ED\n-------------------------------------------------------"
   git stash
   git stash clear
   git pull
-  echo -e "---------------------------------\n\t\tYour Repository is updated\n\t\tto the latest commit!\n"
+  echo -e "-------------------------------------------------------\n\t\tYour Repository is updated\n\t\tto the latest commit!\n"
 else
-  echo -e "ENTER'ED\n---------------------------------"
+  echo -e "ENTER'ED\n-------------------------------------------------------"
   read -p "Your Commit Message: " commt
 
   if [[ -z "$commt" || ${#commt} -lt 3 ]]; then
@@ -22,7 +22,7 @@ else
     git push origin HEAD
     git log > commit-hist.txt
     rm -rf .DS_Store/
-    echo -e "---------------------------------\n\t\tYour changes has been pushed\n\t\tto the repository :)\n"
+    echo -e "-------------------------------------------------------\n\t\tYour changes has been pushed\n\t\tto the repository :)\n"
   else
     git add . && \
     git add -u && \
@@ -30,6 +30,6 @@ else
     git push origin HEAD
     git log > commit-hist.txt
     rm -rf .DS_Store/
-    echo -e "---------------------------------\n\t\tYour changes has been pushed\n\t\tto the repository :)\n"
+    echo -e "-------------------------------------------------------\n\t\tYour changes has been pushed\n\t\tto the repository :)\n"
   fi
 fi
