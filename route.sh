@@ -9,7 +9,7 @@ if [[ $answer == "yes" || $answer == "Yes" || $answer == "YES" ]]; then
   git stash
   git stash clear
   git pull
-  echo -e "-------------------------------------------------------\n\t\tYour Repository is updated\n\t\tto the latest commit!\n######################################################"
+  echo -e "-------------------------------------------------------\n\t\tYour Repository is updated\n\t\tto the latest commit!\n_____________________________________________"
 else
   echo -e "ENTER'ED\n-------------------------------------------------------"
   read -p "Your Commit Message: " commt
@@ -22,7 +22,7 @@ else
     git push origin HEAD
     git log > commit-hist.txt
     rm -rf .DS_Store/
-    echo -e "-------------------------------------------------------\n\t\tYour changes has been pushed\n\t\tto the repository :)\n######################################################"
+    echo -e "-------------------------------------------------------\n\t\tYour changes has been pushed\n\t\tto the repository :)\n_____________________________________________"
   else
     git add . && \
     git add -u && \
@@ -30,6 +30,6 @@ else
     git push origin HEAD
     git log > commit-hist.txt
     rm -rf .DS_Store/
-    echo -e "-------------------------------------------------------\n\t\tYour changes has been pushed\n\t\tto the repository :)\n######################################################"
+    echo -e "-------------------------------------------------------\n\t\tYour changes has been pushed\n\t\tto the repository :)\n_____________________________________________"
   fi
 fi
