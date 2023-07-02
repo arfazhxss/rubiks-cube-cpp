@@ -1,7 +1,22 @@
-# OpenGL/glut Rubik Cube
+/*# OpenGL/glut Rubik Cube
 Rubik's Cube in C++ with OpenGL/glut
 
 <img src="./Rubiks%20Cube.gif" alt="Rubik's Cube" width="200" height="200">
+*/
+
+# OpenGL/glut Rubik Cube
+
+<div style="display: flex;">
+  <div style="flex: 1;">
+    <!-- Title and paragraph content -->
+    Rubik's Cube in C++ with OpenGL/glut
+  </div>
+  <div style="flex: 1;">
+    <!-- Image -->
+    <img src="./Rubiks%20Cube.gif" alt="Rubik's Cube" width="200" height="200">
+  </div>
+</div>
+
 
 ## Documentation
 
