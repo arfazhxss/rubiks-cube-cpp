@@ -38,23 +38,33 @@ void main()                                                                   \n
 {                                                                             \n\
     colour = vec4(1.0, 0.0, 0.0, 1.0);                                         \n\
 }";
-
 void CreateTriangle()
 {
-	GLfloat vertices[] = {
-		-1.0f, -1.0f, 0.0f,
-		1.0f, -1.0f, 0.0f,
-		0.0f, 1.0f, 0.0f
+	// Step 1: Define the vertices of the triangle
+	GLfloat vertices[] = 
+	{ 
+	   	-1.0f, -1.0f, +0.0f,
+	   	+1.0f, -1.0f, +0.0f,
+		+0.0f, +1.0f, +0.0f
 	};
-
+						   
+	// Step 2: Generate a vertex array object (VAO)
 	glGenVertexArrays(1, &VAO);
-	glBindVertexArray(VAO);
+	// Step 3: Bind the vertex array object (VAO)
+	glBindVertexArray(VAO);		
+		// Step 4: Generate a vertex buffer object (VBO)
 		glGenBuffers(1, &VBO);
+		// Step 5: Bind the VBO to GL_ARRAY_BUFFER
 		glBindBuffer(GL_ARRAY_BUFFER, VBO);
+			// Step 6: Copy the vertex data to the VBO 
 			glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+			// Step 7: Specify the layout of the vertex data 
 			glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+			// Step 8: Enable the vertex attribute at index 0
 			glEnableVertexAttribArray(0);
+		 // Step 9: Unbind the vertex buffer object (VBO)
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
+	// Step 10: Unbind the vertex array object (VAO)
 	glBindVertexArray(0);
 }
 
