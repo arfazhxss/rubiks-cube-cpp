@@ -1,3 +1,10 @@
+commit 42c04c3b098dbbdfb72cd58f05e5a5bd7d8ec57b
+Author: Arfaz <arfazhussain@outlook.com>
+Date:   Sat Jul 1 23:38:15 2023 -0700
+
+    Shader Documentation Updated
+    Commit by @arfazhxss on Sat 01 Jul 2023
+
 commit a54c35906c4d2075405b0826853ae13abde7261e
 Author: Arfaz <arfazhussain@outlook.com>
 Date:   Sat Jul 1 23:34:50 2023 -0700
