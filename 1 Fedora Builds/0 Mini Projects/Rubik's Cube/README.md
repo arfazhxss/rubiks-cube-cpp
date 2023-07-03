@@ -1,58 +1,70 @@
-# OpenGL Rubik Cube 
-Implementation of a 3D Rubik's Cube in C++ using C Libraries: GLUT, GLFW and GLM
+## OpenGL Rubik's Cube
+
+This project is an implementation of a 3D Rubik's Cube using C++ and popular C libraries such as GLUT, GLFW, and GLM. The program allows you to interactively manipulate and solve the Rubik's Cube through keyboard commands and mouse input.
 
 <img src="./Rubiks%20Cube.gif" alt="Rubik's Cube" width="500" height="500">
 
+### Compilation and Execution
 
-## Documentation
+To compile the program, use the following command:
 
-Everything is in one file just because you can compile and run them with just one command.
+```
+make
+```
 
-**Compile with:** `make`
+This command will compile the source code and generate an executable file named `OpenGL`.
 
-**Run with:** `./OpenGL`
+To run the program, execute the following command:
 
-**Clean:** `make clean`
+```
+./OpenGL
+```
 
-### Commands
+### Controls
 
-Commands are case-insensitive.
+The Rubik's Cube visualization can be manipulated using the following keyboard commands:
 
-**Cube visualization**
+**Cube Rotation:**
 
-- L: rotate right
-- J: rotate left
-- I: rotate down
-- K: rotate up
-- +: zoom in
-- -: zoom out
-- mouse left click: zoom in
-- mouse right click: zoom out
+- **L**: Rotate the cube to the right.
+- **J**: Rotate the cube to the left.
+- **I**: Rotate the cube downwards.
+- **K**: Rotate the cube upwards.
+- **+**: Zoom in.
+- **-**: Zoom out.
+- **Mouse Left Click**: Zoom in.
+- **Mouse Right Click**: Zoom out.
 
-**Face selection (for moving parts)**
+**Face Selection (for moving parts):**
 
-There is no face selection feedback.
-(Consider left-bottom as origin)
+Face selection is based on the coordinate system, with the origin located at the bottom-left of the Rubik's Cube.
 
-*Along x axis*
+Along the x-axis:
 
-- Q: select 1st layer
-- W: select 2nd layer
-- E: select 3rd layer
+- **Q**: Select the 1st layer.
+- **W**: Select the 2nd layer.
+- **E**: Select the 3rd layer.
 
-*Along y axis*
+Along the y-axis:
 
-- A: select 1st layer
-- S: select 2nd layer
-- D: select 3rd layer
+- **A**: Select the 1st layer.
+- **S**: Select the 2nd layer.
+- **D**: Select the 3rd layer.
 
-*Along z axis*
+Along the z-axis:
 
-- Z: select 1st layer
-- X: select 2nd layer
-- C: select 3rd layer
+- **Z**: Select the 1st layer.
+- **X**: Select the 2nd layer.
+- **C**: Select the 3rd layer.
 
-**Face rotation**
+**Face Rotation:**
 
-- O: rotate selected face clockwise
-- U: rotate selected face counter-clockwise
+- **O**: Rotate the selected face clockwise.
+- **U**: Rotate the selected face counterclockwise.
+
+### Notes
+
+- Face selection feedback is not provided visually.
+- The Rubik's Cube can be solved by executing the necessary rotations to restore each face to its original state.
+
+Feel free to explore and interact with the Rubik's Cube using the provided controls. Have fun solving it!
