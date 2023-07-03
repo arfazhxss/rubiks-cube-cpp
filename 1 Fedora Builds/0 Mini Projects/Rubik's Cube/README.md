@@ -1,6 +1,6 @@
 ## OpenGL Rubik's Cube
 
-This project is an implementation of a 3D Rubik's Cube using C++ and popular C libraries such as GLUT, GLFW, and GLM. The program allows you to interactively manipulate and solve the Rubik's Cube through keyboard commands and mouse input.
+This project is an implementation of a 3D Rubik's Cube using C++ and C libraries such as GLUT, GLFW, and GLM. The program allows you to interactively manipulate and solve the Rubik's Cube through keyboard commands and mouse input (still in the works).
 
 <img src="./Rubiks%20Cube.gif" alt="Rubik's Cube" width="500" height="500">
 
