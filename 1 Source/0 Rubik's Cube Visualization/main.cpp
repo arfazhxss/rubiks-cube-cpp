@@ -5,7 +5,9 @@
 using namespace std;
 
 struct cube_rotate
-{ GLfloat angle, x, y, z; };
+{
+  GLfloat angle, x, y, z;
+};
 
 GLfloat angle, fAspect, cube_size;
 GLint rot_x, rot_y, crement, x0, xK, y0, yK, z0, zK, gap, gap_crement;
@@ -23,9 +25,18 @@ void apply_rotation(GLfloat angle)
     for (int j = 0; j < 3; ++j)
     {
       index = 2 - j % 3;
-      if (x0 == xK) { face[index][i] = cube_rotations[xK][i][j], rotation = {angle, 1.0, 0.0, 0.0}; }
-      if (y0 == yK) { face[index][i] = cube_rotations[j][yK][i], rotation = {angle, 0.0, 1.0, 0.0}; }
-      if (z0 == zK) { face[index][i] = cube_rotations[j][i][zK], rotation = {-1 * angle, 0.0, 0.0, 1.0}; }
+      if (x0 == xK)
+      {
+        face[index][i] = cube_rotations[xK][i][j], rotation = {angle, 1.0, 0.0, 0.0};
+      }
+      if (y0 == yK)
+      {
+        face[index][i] = cube_rotations[j][yK][i], rotation = {angle, 0.0, 1.0, 0.0};
+      }
+      if (z0 == zK)
+      {
+        face[index][i] = cube_rotations[j][i][zK], rotation = {-1 * angle, 0.0, 0.0, 1.0};
+      }
 
       face[index][i].push_back(rotation);
     }
@@ -33,23 +44,41 @@ void apply_rotation(GLfloat angle)
   for (int i = 0; i < 3; ++i)
     for (int j = 0; j < 3; ++j)
     {
-      if (x0 == xK) { cube_rotations[xK][i][j] = face[i][j]; }
-      if (y0 == yK) { cube_rotations[j][yK][i] = face[i][j]; }
-      if (z0 == zK) { cube_rotations[j][i][zK] = face[i][j]; }
+      if (x0 == xK)
+      {
+        cube_rotations[xK][i][j] = face[i][j];
+      }
+      if (y0 == yK)
+      {
+        cube_rotations[j][yK][i] = face[i][j];
+      }
+      if (z0 == zK)
+      {
+        cube_rotations[j][i][zK] = face[i][j];
+      }
     }
 }
 
-void reset_selected_face() 
-{ x0 = 0; xK = 2; y0 = 0; yK = 2; z0 = 0; zK = 2; }
-
-void errand (int x, int y, int z) 
-{ 
-  int* err = new int(x + y + z); 
-  delete err; 
+void reset_selected_face()
+{
+  x0 = 0;
+  xK = 2;
+  y0 = 0;
+  yK = 2;
+  z0 = 0;
+  zK = 2;
 }
 
-void set_camera() 
-{ gluLookAt(0, 80, 200, 0, 0, 0, 0, 1, 0); }
+void errand(int x, int y, int z)
+{
+  int *err = new int(x + y + z);
+  delete err;
+}
+
+void set_camera()
+{
+  gluLookAt(0, 80, 200, 0, 0, 0, 0, 1, 0);
+}
 
 void draw_cube(int x, int y, int z)
 {
@@ -60,59 +89,58 @@ void draw_cube(int x, int y, int z)
   for (int i = lrot.size() - 1; i >= 0; --i)
     glRotatef(lrot[i].angle, lrot[i].x, lrot[i].y, lrot[i].z);
 
-  glBegin(GL_QUADS);
-  glNormal3f(0.0, 0.0, 1.0);
-  glColor3f(1.0f, 0.0f, 0.0f);
-  glVertex3f(cube_size / 2, cube_size / 2, cube_size / 2);
-  glVertex3f(-cube_size / 2, cube_size / 2, cube_size / 2);
-  glVertex3f(-cube_size / 2, -cube_size / 2, cube_size / 2);
-  glVertex3f(cube_size / 2, -cube_size / 2, cube_size / 2);
-  glEnd();
+  for (int face = 0; face < 6; ++face)
+  {
+    glBegin(GL_QUADS);
+    glColor3f(cube_face_colors[x][y][z][face].r, cube_face_colors[x][y][z][face].g, cube_face_colors[x][y][z][face].b);
 
-  glBegin(GL_QUADS);
-  glNormal3f(0.0, 0.0, -1.0);
-  glColor3f(1.0f, 0.5f, 0.0f);
-  glVertex3f(cube_size / 2, cube_size / 2, -cube_size / 2);
-  glVertex3f(cube_size / 2, -cube_size / 2, -cube_size / 2);
-  glVertex3f(-cube_size / 2, -cube_size / 2, -cube_size / 2);
-  glVertex3f(-cube_size / 2, cube_size / 2, -cube_size / 2);
-  glEnd();
-
-  glBegin(GL_QUADS);
-  glNormal3f(-1.0, 0.0, 0.0);
-  glColor3f(0.0f, 0.0f, 1.0f);
-  glVertex3f(-cube_size / 2, cube_size / 2, cube_size / 2);
-  glVertex3f(-cube_size / 2, cube_size / 2, -cube_size / 2);
-  glVertex3f(-cube_size / 2, -cube_size / 2, -cube_size / 2);
-  glVertex3f(-cube_size / 2, -cube_size / 2, cube_size / 2);
-  glEnd();
-
-  glBegin(GL_QUADS);
-  glNormal3f(1.0, 0.0, 0.0);
-  glColor3f(0.0f, 1.0f, 0.0f);
-  glVertex3f(cube_size / 2, cube_size / 2, cube_size / 2);
-  glVertex3f(cube_size / 2, -cube_size / 2, cube_size / 2);
-  glVertex3f(cube_size / 2, -cube_size / 2, -cube_size / 2);
-  glVertex3f(cube_size / 2, cube_size / 2, -cube_size / 2);
-  glEnd();
-
-  glBegin(GL_QUADS);
-  glNormal3f(0.0, 1.0, 0.0);
-  glColor3f(1.0f, 1.0f, 1.0f);
-  glVertex3f(-cube_size / 2, cube_size / 2, -cube_size / 2);
-  glVertex3f(-cube_size / 2, cube_size / 2, cube_size / 2);
-  glVertex3f(cube_size / 2, cube_size / 2, cube_size / 2);
-  glVertex3f(cube_size / 2, cube_size / 2, -cube_size / 2);
-  glEnd();
-
-  glBegin(GL_QUADS);
-  glNormal3f(0.0, -1.0, 0.0);
-  glColor3f(1.0f, 1.0f, 0.0f);
-  glVertex3f(-cube_size / 2, -cube_size / 2, -cube_size / 2);
-  glVertex3f(cube_size / 2, -cube_size / 2, -cube_size / 2);
-  glVertex3f(cube_size / 2, -cube_size / 2, cube_size / 2);
-  glVertex3f(-cube_size / 2, -cube_size / 2, cube_size / 2);
-  glEnd();
+    switch (face)
+    {
+    case 0: // Front
+      glNormal3f(0.0, 0.0, 1.0);
+      glVertex3f(cube_size / 2, cube_size / 2, cube_size / 2);
+      glVertex3f(-cube_size / 2, cube_size / 2, cube_size / 2);
+      glVertex3f(-cube_size / 2, -cube_size / 2, cube_size / 2);
+      glVertex3f(cube_size / 2, -cube_size / 2, cube_size / 2);
+      break;
+    case 1: // Back
+      glNormal3f(0.0, 0.0, -1.0);
+      glVertex3f(cube_size / 2, cube_size / 2, -cube_size / 2);
+      glVertex3f(cube_size / 2, -cube_size / 2, -cube_size / 2);
+      glVertex3f(-cube_size / 2, -cube_size / 2, -cube_size / 2);
+      glVertex3f(-cube_size / 2, cube_size / 2, -cube_size / 2);
+      break;
+    case 2: // Left
+      glNormal3f(-1.0, 0.0, 0.0);
+      glVertex3f(-cube_size / 2, cube_size / 2, cube_size / 2);
+      glVertex3f(-cube_size / 2, cube_size / 2, -cube_size / 2);
+      glVertex3f(-cube_size / 2, -cube_size / 2, -cube_size / 2);
+      glVertex3f(-cube_size / 2, -cube_size / 2, cube_size / 2);
+      break;
+    case 3: // Right
+      glNormal3f(1.0, 0.0, 0.0);
+      glVertex3f(cube_size / 2, cube_size / 2, cube_size / 2);
+      glVertex3f(cube_size / 2, -cube_size / 2, cube_size / 2);
+      glVertex3f(cube_size / 2, -cube_size / 2, -cube_size / 2);
+      glVertex3f(cube_size / 2, cube_size / 2, -cube_size / 2);
+      break;
+    case 4: // Top
+      glNormal3f(0.0, 1.0, 0.0);
+      glVertex3f(-cube_size / 2, cube_size / 2, -cube_size / 2);
+      glVertex3f(-cube_size / 2, cube_size / 2, cube_size / 2);
+      glVertex3f(cube_size / 2, cube_size / 2, cube_size / 2);
+      glVertex3f(cube_size / 2, cube_size / 2, -cube_size / 2);
+      break;
+    case 5: // Bottom
+      glNormal3f(0.0, -1.0, 0.0);
+      glVertex3f(-cube_size / 2, -cube_size / 2, -cube_size / 2);
+      glVertex3f(cube_size / 2, -cube_size / 2, -cube_size / 2);
+      glVertex3f(cube_size / 2, -cube_size / 2, cube_size / 2);
+      glVertex3f(-cube_size / 2, -cube_size / 2, cube_size / 2);
+      break;
+    }
+    glEnd();
+  }
 
   glPopMatrix();
 }
@@ -131,7 +159,7 @@ void draw_func(void)
     draw_cube(i / 9, (i / 3) % 3, i % 3);
 
   glutSwapBuffers();
-  errand(x,y,z);
+  errand(x, y, z);
 }
 
 void init_func(void)
@@ -169,8 +197,8 @@ void load_visualization_parameters(void)
 {
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
-    gluPerspective(angle, fAspect, 0.4, 500);
-    glMatrixMode(GL_MODELVIEW);
+  gluPerspective(angle, fAspect, 0.4, 500);
+  glMatrixMode(GL_MODELVIEW);
   glLoadIdentity();
 
   set_camera();
@@ -189,23 +217,90 @@ void keyboard_func(unsigned char key, int x, int y)
 {
   switch (key)
   {
-    case '+': gap += gap_crement; break;
-    case '-': gap -= gap_crement; break;
-    case 'L': case 'l': rot_y = (rot_y - crement) % 360; break;
-    case 'J': case 'j': rot_y = (rot_y + crement) % 360; break;
-    case 'I': case 'i': rot_x = (rot_x + crement) % 360; break;
-    case 'K': case 'k': rot_x = (rot_x - crement) % 360; break;
-    case 'Q': case 'q': reset_selected_face(); x0 = 0; xK = 0; break;
-    case 'W': case 'w': reset_selected_face(); x0 = 1; xK = 1; break;
-    case 'E': case 'e': reset_selected_face(); x0 = 2; xK = 2; break;
-    case 'A': case 'a': reset_selected_face(); y0 = 0; yK = 0; break;
-    case 'S': case 's': reset_selected_face(); y0 = 1; yK = 1; break;
-    case 'D': case 'd': reset_selected_face(); y0 = 2; yK = 2; break;
-    case 'C': case 'c': reset_selected_face(); z0 = 0; zK = 0; break;
-    case 'X': case 'x': reset_selected_face(); z0 = 1; zK = 1; break;
-    case 'Z': case 'z': reset_selected_face(); z0 = 2; zK = 2; break;
-    case 'U': case 'u': apply_rotation(-90); break; 
-    case 'O': case 'o': apply_rotation(90); break;
+  case '+':
+    gap += gap_crement;
+    break;
+  case '-':
+    gap -= gap_crement;
+    break;
+  case 'L':
+  case 'l':
+    rot_y = (rot_y - crement) % 360;
+    break;
+  case 'J':
+  case 'j':
+    rot_y = (rot_y + crement) % 360;
+    break;
+  case 'I':
+  case 'i':
+    rot_x = (rot_x + crement) % 360;
+    break;
+  case 'K':
+  case 'k':
+    rot_x = (rot_x - crement) % 360;
+    break;
+  case 'Q':
+  case 'q':
+    reset_selected_face();
+    x0 = 0;
+    xK = 0;
+    break;
+  case 'W':
+  case 'w':
+    reset_selected_face();
+    x0 = 1;
+    xK = 1;
+    break;
+  case 'E':
+  case 'e':
+    reset_selected_face();
+    x0 = 2;
+    xK = 2;
+    break;
+  case 'A':
+  case 'a':
+    reset_selected_face();
+    y0 = 0;
+    yK = 0;
+    break;
+  case 'S':
+  case 's':
+    reset_selected_face();
+    y0 = 1;
+    yK = 1;
+    break;
+  case 'D':
+  case 'd':
+    reset_selected_face();
+    y0 = 2;
+    yK = 2;
+    break;
+  case 'C':
+  case 'c':
+    reset_selected_face();
+    z0 = 0;
+    zK = 0;
+    break;
+  case 'X':
+  case 'x':
+    reset_selected_face();
+    z0 = 1;
+    zK = 1;
+    break;
+  case 'Z':
+  case 'z':
+    reset_selected_face();
+    z0 = 2;
+    zK = 2;
+    break;
+  case 'U':
+  case 'u':
+    apply_rotation(-90);
+    break;
+  case 'O':
+  case 'o':
+    apply_rotation(90);
+    break;
   }
   glutPostRedisplay();
   errand(x, y, 0);

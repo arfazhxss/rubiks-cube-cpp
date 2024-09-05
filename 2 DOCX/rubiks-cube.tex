@@ -1,0 +1,93 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\title{Rubik's Cube Visualization and Interaction in C++ using OpenGL}
+\author{Arfaz Hussain}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+This document provides an in-depth explanation of a C++ program designed to visualize and interact with a Rubik's Cube using OpenGL. The code demonstrates advanced 3D graphics programming concepts, including rotations, transformations, and event handling for keyboard and mouse input. The program allows users to interact with a simulated Rubik's Cube, manipulating its layers using various keyboard commands.
+
+\section{Dependencies and Libraries}
+The program utilizes the following libraries:
+\begin{itemize}
+    \item \texttt{<GL/gl.h>} - The core OpenGL library for rendering.
+    \item \texttt{<GL/glut.h>} - The GLUT library for handling windowing, input, and event processing.
+    \item \texttt{<vector>} - The C++ Standard Library for dynamic array handling.
+\end{itemize}
+
+\section{Code Structure}
+The code is structured into several functions, each responsible for specific aspects of visualization and interaction:
+\begin{itemize}
+    \item Global variable declarations and structures.
+    \item Functions for loading visualization parameters and setting up the camera.
+    \item Functions for applying rotations and drawing individual cubes and the entire Rubik's Cube.
+    \item Functions for handling user input via keyboard and mouse.
+    \item Main function to initialize the OpenGL context and enter the event loop.
+\end{itemize}
+
+\section{Function Descriptions}
+
+\subsection{\texttt{apply\_rotation(GLfloat angle)}}
+This function is responsible for applying a rotation to a specific face of the Rubik's Cube. It first identifies which face (X, Y, or Z) is selected based on global variables \texttt{x0}, \texttt{xK}, \texttt{y0}, \texttt{yK}, \texttt{z0}, \texttt{zK}. The function uses these indices to modify the \texttt{cube\_rotations} array that keeps track of all the rotations applied to each cube.
+
+\subsection{\texttt{reset\_selected\_face()}}
+Resets the selected face for rotation to the default entire cube selection.
+
+\subsection{\texttt{errand(int x, int y, int z)}}
+This function is an example of memory management. It creates a temporary integer pointer, allocates memory, and then deallocates it. This could serve as an example or a placeholder for error handling or other computational tasks.
+
+\subsection{\texttt{set\_camera()}}
+Sets up the camera view using \texttt{gluLookAt()} to provide a perspective for rendering the 3D cube.
+
+\subsection{\texttt{draw\_cube(int x, int y, int z)}}
+Responsible for drawing an individual cube in the Rubik's Cube grid. It applies all stored rotations and translates the cube to its correct position in the 3D space.
+
+\subsection{\texttt{draw\_func()}}
+The core display function that renders the entire Rubik's Cube. It clears the screen, resets transformations, applies camera settings, and draws all 27 sub-cubes in their respective positions.
+
+\subsection{\texttt{init\_func()}}
+Initializes OpenGL settings such as lighting, shading, and material properties. This function sets up the environment for 3D rendering.
+
+\subsection{\texttt{load\_visualization\_parameters()}}
+Loads perspective projection parameters to define how the 3D scene is projected onto the 2D screen.
+
+\subsection{\texttt{reshape\_func(GLsizei w, GLsizei h)}}
+Handles window resizing events to adjust the aspect ratio and projection settings.
+
+\subsection{\texttt{keyboard\_func(unsigned char key, int x, int y)}}
+Handles keyboard input for rotating the entire Rubik's Cube or its individual faces. It maps various keys to specific transformations and updates.
+
+\subsection{\texttt{mouse\_func(int b, int s, int x, int y)}}
+Handles mouse input for zooming in and out of the 3D scene by adjusting the viewing angle.
+
+\subsection{\texttt{main(int argc, char **argv)}}
+The entry point of the program. It initializes GLUT, sets up the display mode and window size, registers callback functions, and starts the GLUT event processing loop.
+
+\section{Compilation and Execution Instructions}
+To compile and execute the program, follow these steps:
+\begin{enumerate}
+    \item Ensure you have OpenGL and GLUT installed on your system.
+    \item Use the following command to compile the program:
+    \begin{verbatim}
+    g++ -o rubiks_cube rubiks_cube.cpp -lGL -lGLU -lglut
+    \end{verbatim}
+    \item Run the program using texttt{make} or using the following command:
+    \begin{verbatim}
+    ./rubiks_cube
+    \end{verbatim}
+    \item Use keyboard and mouse inputs (yet to be implemented) to interact with the Rubik's Cube.
+\end{enumerate}
+
+\section{Source Code}
+The complete source code for this Rubik's Cube visualization can be found on GitHub at: \texttt{https://github.com/arfazhxss/rubiks-cube-cpp}.
+
+\end{document}
+
